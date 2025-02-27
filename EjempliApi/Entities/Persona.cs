@@ -5,6 +5,7 @@ namespace EjempliApi.Entities;
 
 public partial class Persona: BaseEntity
 {
+    
     public string? Identificacion { get; set; }
 
     public string? Nombres { get; set; }

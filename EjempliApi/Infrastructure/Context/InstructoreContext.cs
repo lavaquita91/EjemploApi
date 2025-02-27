@@ -8,7 +8,13 @@ namespace EjempliApi.Infrastructure.Context
     {
         public void Configure(EntityTypeBuilder<Instructore> builder)
         {
-            builder.HasKey(e => e.Id).HasName("PK__Instruct__10850044F8B89BFC");
+            builder.HasKey(e => e.Id);
+
+            builder.ToTable("Instructores");
+
+            builder.Property(e => e.Id)
+               .HasColumnName("IdPiloto")
+               .ValueGeneratedOnAdd();
 
             builder.Property(e => e.Estado)
                 .HasMaxLength(50)

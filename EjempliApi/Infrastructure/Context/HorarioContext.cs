@@ -9,9 +9,13 @@ namespace EjempliApi.Infrastructure.Context
      
         public void Configure(EntityTypeBuilder<Horario> builder)
         {
-            builder.HasKey(e => e.Id).HasName("PK__Horario__1539229B479942B0");
+            builder.HasKey(e => e.Id);
 
             builder.ToTable("Horario");
+
+            builder.Property(e => e.Id)
+               .HasColumnName("IdHorario")
+               .ValueGeneratedOnAdd();
 
             builder.Property(e => e.Estado)
                 .HasMaxLength(50)

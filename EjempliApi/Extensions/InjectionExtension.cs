@@ -19,10 +19,18 @@ namespace EjempliApi.Extensions
                     configuration.GetConnectionString("POSConnection"), b => b.MigrationsAssembly(assembly)), ServiceLifetime.Transient
                     );
 
+            var connectionString = configuration.GetConnectionString("PosConnection")
+            ?? throw new ArgumentNullException("PosConnection", "La cadena de conexión no está configurada.");
+
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IPersona, PersonaService>();
+            services.AddScoped<IObtenerPilotoSp, ObtenerPilotoSp>();
+            //services.AddScoped<IObtenerPilotoSp>(provider =>new ObtenerPilotoSp(connectionString));
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+
+
 
 
             return services;

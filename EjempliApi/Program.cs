@@ -13,6 +13,13 @@ var Cors = "Cors";
 
 builder.Services.AddInjectionInfrastructure(Configuration);
 
+
+if (builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddUserSecrets<Program>();
+}
+
+
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();

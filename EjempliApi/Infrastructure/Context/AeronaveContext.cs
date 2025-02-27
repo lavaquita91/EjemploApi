@@ -8,9 +8,13 @@ namespace EjempliApi.Infrastructure.Context
     {
         public void Configure(EntityTypeBuilder<Aeronave> builder)
         {
-            builder.HasKey(e => e.Id).HasName("PK__Aeronave__2042F68AAAC86574");
+            builder.HasKey(e => e.Id);
 
             builder.ToTable("Aeronave");
+
+            builder.Property(e => e.Id)
+               .HasColumnName("IdAeronave")
+               .ValueGeneratedOnAdd();
 
             builder.Property(e => e.Estado)
                 .HasMaxLength(50)

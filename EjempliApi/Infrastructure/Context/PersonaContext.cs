@@ -12,7 +12,9 @@ namespace EjempliApi.Infrastructure.Context
 
             builder.ToTable("Personas");
 
-            builder.Property(e => e.Id).HasColumnName("IdPersona");
+            builder.Property(e => e.Id)
+                .HasColumnName("IdPersona")
+                .ValueGeneratedOnAdd();
 
             builder.Property(e => e.Apellidos)
                 .HasMaxLength(200)
