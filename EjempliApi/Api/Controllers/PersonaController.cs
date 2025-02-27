@@ -16,6 +16,12 @@ namespace EjempliApi.Api.Controllers
             _personaService = personaService;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetPersonas()
+        {
+            var response = await _personaService.GetPersonas();
+            return Ok(response);
+        }
 
         [HttpPost("Registrar")]
         public async Task<IActionResult> RegisterPelicula([FromBody] PersonaRequest request)

@@ -6,5 +6,6 @@
         public string? Identificacion { get; set; }
         public string? NombreCompleto { get; set; }
         public DateTime Fecha_Ingreso { get; set; }
+        public string? Estado { get; set; }
     }
 }

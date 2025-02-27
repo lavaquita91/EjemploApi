@@ -23,12 +23,15 @@ namespace EjempliApi.Infrastructure.Persistence.Repositories
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var getAll = await _entity.AsNoTracking().ToListAsync();
+            return getAll;
         }
 
         public IQueryable<T> GetAllQueryble()
         {
-            throw new NotImplementedException();
+            var getAllquery = GetEntityQuery(x => x.Estado == null && x.FechaIngreso == null);
+
+            return getAllquery;
         }
 
         public async Task<T> GetByIdAsync(int id)
